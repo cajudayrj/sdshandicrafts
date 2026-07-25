@@ -7,6 +7,7 @@ import { SHOP } from "@/lib/socials";
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "What We Make", href: "#what-we-make" },
+  { label: "Products", href: "#products" },
   { label: "About", href: "#about" },
   { label: "How to Order", href: "#how-to-order" },
   { label: "Contact", href: "#contact" },
@@ -39,7 +40,7 @@ export default function Header() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
