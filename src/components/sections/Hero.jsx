@@ -48,7 +48,7 @@ export default function Hero() {
         </div>
 
         <div className="order-1 flex justify-center lg:order-2">
-          <div className="rounded-[2.5rem] border-2 border-navy bg-white shadow-[8px_8px_0_0_var(--blush)] overflow-hidden">
+          <div className="rounded-[2.5rem] transform rotate-6 border-2 border-navy bg-white shadow-[8px_8px_0_0_var(--blush)] overflow-hidden">
             <Image
               src="/atfimage.jpg"
               alt="SDS Handicrafts logo"
@@ -56,8 +56,8 @@ export default function Hero() {
               height={2166}
               loading="eager"
               fetchPriority="high"
-              sizes="(min-width: 640px) 288px, 224px"
-              className="h-56 w-56 object-cover sm:h-72 sm:w-72"
+              sizes="(min-width: 640px) 400px, 224px"
+              className="h-56 w-56 object-cover sm:h-full sm:w-full"
             />
           </div>
         </div>
