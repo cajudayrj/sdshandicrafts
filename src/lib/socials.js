@@ -92,8 +92,8 @@ function ShopeeIcon(props) {
 export const SOCIALS = [
   {
     name: "TikTok",
-    handle: "@dahnieee",
-    href: "https://www.tiktok.com/@dahnieee", // TODO: https://www.tiktok.com/@...
+    handle: "@sds.handicrafts",
+    href: "https://www.tiktok.com/@sds.handicrafts", // TODO: https://www.tiktok.com/@...
     Icon: TikTokIcon,
   },
   {
@@ -108,12 +108,12 @@ export const SOCIALS = [
     href: "https://www.facebook.com/sdshandicrafts", // TODO: https://www.facebook.com/...
     Icon: FacebookIcon,
   },
-  {
-    name: "Shopee",
-    handle: "sdshandicrafts",
-    href: "#", // TODO: https://shopee.ph/...
-    Icon: ShopeeIcon,
-  },
+  // {
+  //   name: "Shopee",
+  //   handle: "sdshandicrafts",
+  //   href: "#", // TODO: https://shopee.ph/...
+  //   Icon: ShopeeIcon,
+  // },
 ];
 
 // The primary "buy" destination, reused by the header pill and the hero CTA.
