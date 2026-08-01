@@ -8,9 +8,9 @@ import CtaBand from "@/components/sections/CtaBand";
 export default function Home() {
   return (
     <>
+      <Products />
       <Hero />
       <WhatWeMake />
-      <Products />
       <About />
       <HowToOrder />
       <CtaBand />

@@ -1,14 +1,23 @@
 import Image from "next/image";
 import { SOCIALS } from "@/lib/socials";
 
+// Absolute, not bare hashes: the footer renders on every route, and these
+// sections only exist on the homepage. Plain <a> rather than next/link for the
+// same reason as the header — see the note there.
 const QUICK_LINKS = [
-  { label: "What We Make", href: "#what-we-make" },
-  { label: "About Us", href: "#about" },
-  { label: "How to Order", href: "#how-to-order" },
-  { label: "Contact", href: "#contact" },
+  { label: "What We Make", href: "/#what-we-make" },
+  { label: "About Us", href: "/#about" },
+  { label: "How to Order", href: "/#how-to-order" },
+  { label: "Contact", href: "/#contact" },
 ];
 
-export default function Footer() {
+// Cached because of the copyright year below: with Cache Components, reading the
+// current time during prerender has to be explicitly opted into. Everything else
+// here is static, so caching the whole footer is the cheapest way to say "this
+// year is fine to bake in until the next revalidation".
+export default async function Footer() {
+  "use cache";
+
   return (
     <footer id="contact" className="bg-navy text-cream">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-3">

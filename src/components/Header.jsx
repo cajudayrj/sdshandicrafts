@@ -4,13 +4,21 @@ import { useState } from "react";
 import Image from "next/image";
 import { SHOP } from "@/lib/socials";
 
+// Every section these point at lives on the homepage, so the paths are absolute
+// rather than bare hashes. A bare "#products" silently does nothing from
+// /products or /category/[category] — there's no such element on those pages.
+//
+// These stay plain <a> rather than next/link on purpose. Routing a hash change
+// through the router appends to the existing fragment instead of replacing it
+// (/#what-we-make then Home gives /#what-we-make#home). A native anchor gets
+// both cases right on its own: an in-page scroll when already on the homepage,
+// a normal navigation from anywhere else.
 const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "What We Make", href: "#what-we-make" },
-  { label: "Products", href: "#products" },
-  { label: "About", href: "#about" },
-  { label: "How to Order", href: "#how-to-order" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/#about" },
+  { label: "On-hand Items", href: "/category/on-hand" },
+  { label: "Personalized Items", href: "/category/personalized" },
+  { label: "Contact Us", href: "/#contact" },
 ];
 
 export default function Header() {
@@ -19,8 +27,11 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-blush bg-cream/85 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-5 sm:px-8">
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages --
+            deliberate: routing this through next/link appends to the current
+            fragment rather than replacing it. See the NAV_LINKS note above. */}
         <a
-          href="#home"
+          href="/"
           onClick={() => setOpen(false)}
           className="flex items-center gap-3"
         >

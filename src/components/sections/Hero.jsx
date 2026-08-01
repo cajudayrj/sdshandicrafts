@@ -15,9 +15,9 @@ export default function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-2">
         <div className="order-2 text-center lg:order-1 lg:text-left">
-          <span className="inline-block rounded-full border-2 border-navy bg-sunny px-4 py-1.5 font-display text-sm font-semibold">
+          {/* <span className="inline-block rounded-full border-2 border-navy bg-sunny px-4 py-1.5 font-display text-sm font-semibold">
             Handmade with love
-          </span>
+          </span> */}
           <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.1] tracking-tight text-navy sm:text-6xl">
             Little handmade things,
             <br />
