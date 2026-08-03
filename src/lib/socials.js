@@ -89,6 +89,29 @@ function ShopeeIcon(props) {
   );
 }
 
+function GmailIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <rect
+        x="2.75"
+        y="4.75"
+        width="18.5"
+        height="14.5"
+        rx="3.5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
+      <path
+        d="M4.4 7.6 12 13l7.6-5.4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export const SOCIALS = [
   {
     name: "TikTok",
@@ -107,6 +130,12 @@ export const SOCIALS = [
     handle: "S-D-S Handicrafts",
     href: "https://www.facebook.com/sdshandicrafts", // TODO: https://www.facebook.com/...
     Icon: FacebookIcon,
+  },
+  {
+    name: "Gmail",
+    handle: "sds.handicrafts2026",
+    href: "mailto:sds.handicrafts2026@gmail.com", // TODO: confirm the real inbox address
+    Icon: GmailIcon,
   },
   // {
   //   name: "Shopee",

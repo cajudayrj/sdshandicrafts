@@ -1,7 +1,27 @@
-import Image from "next/image";
 import { SHOP } from "@/lib/socials";
+import HeroCarousel from "./HeroCarousel";
+import { getProducts } from "./products/products";
 
-export default function Hero() {
+// How many product photos the slideshow cycles through.
+const SLIDE_COUNT = 5;
+
+// Shown before there is anything to pull from Sanity — an empty frame would
+// read as a broken image rather than an empty shop.
+const FALLBACK_SLIDES = [
+  { src: "/atfimage.jpg", alt: "SDS Handicrafts logo" },
+];
+
+export default async function Hero() {
+  const { products } = await getProducts({ limit: SLIDE_COUNT });
+
+  const slides = products.length
+    ? products.map((product) => ({
+        src: product.image.src,
+        blurDataURL: product.image.blurDataURL,
+        alt: product.name,
+      }))
+    : FALLBACK_SLIDES;
+
   return (
     <section id="home" className="relative overflow-hidden">
       <div
@@ -48,18 +68,7 @@ export default function Hero() {
         </div>
 
         <div className="order-1 flex justify-center lg:order-2">
-          <div className="rounded-[2.5rem] transform rotate-6 border-2 border-navy bg-white shadow-[8px_8px_0_0_var(--blush)] overflow-hidden">
-            <Image
-              src="/atfimage.jpg"
-              alt="SDS Handicrafts logo"
-              width={2166}
-              height={2166}
-              loading="eager"
-              fetchPriority="high"
-              sizes="(min-width: 640px) 400px, 224px"
-              className="h-56 w-56 object-cover sm:h-full sm:w-full"
-            />
-          </div>
+          <HeroCarousel slides={slides} />
         </div>
       </div>
     </section>
