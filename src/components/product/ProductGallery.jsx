@@ -24,12 +24,12 @@ export default function ProductGallery({ images, name }) {
   const current = images[active] ?? images[0];
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <button
         type="button"
         onClick={() => setLightboxOpen(true)}
         aria-label={`View ${name} full size`}
-        className="group relative block aspect-square w-full overflow-hidden rounded-3xl border-2 border-navy bg-blush shadow-[5px_5px_0_0_var(--navy)]"
+        className="group relative block aspect-square w-full overflow-hidden rounded-3xl border-2 border-navy bg-blush shadow-[0_0_0_0_var(--navy)]"
       >
         <Image
           src={current}
@@ -51,7 +51,7 @@ export default function ProductGallery({ images, name }) {
 
       {/* A single image needs no picker — the main image is already all of it. */}
       {images.length > 1 && (
-        <ul className="mt-4 flex gap-3 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden">
+        <ul className="mt-4 flex gap-3 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden pr-0.75">
           {images.map((image, i) => (
             <li key={i}>
               <button
