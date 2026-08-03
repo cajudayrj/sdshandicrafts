@@ -30,7 +30,7 @@ export default function ProductGrid({ products }) {
                 {product.name}
               </span>
               {product.blurb && (
-                <span className="mt-1.5 flex-1 text-sm leading-relaxed text-navy/70">
+                <span title={product.blurb} className="mt-1.5 flex-1 text-sm leading-relaxed text-navy/70 text-ellipsis overflow-hidden line-clamp-3">
                   {product.blurb}
                 </span>
               )}
@@ -39,6 +39,7 @@ export default function ProductGrid({ products }) {
                   {product.price}
                 </span>
               )}
+              <button type="button" className="mt-3 cursor-pointer block rounded-full border-2 border-navy px-5 py-2 font-display text-sm font-semibold text-navy lg:w-full">View Product</button>
             </span>
           </CardShell>
         </li>
@@ -53,7 +54,7 @@ export function ProductGridSkeleton({ count = 6 }) {
       {Array.from({ length: count }, (_, i) => (
         <li
           key={i}
-          className="h-96 animate-pulse rounded-3xl border-2 border-navy/20 bg-blush/30"
+          className="h-72 animate-pulse rounded-3xl border-2 border-navy/20 bg-blush/30"
         />
       ))}
     </ul>

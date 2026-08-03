@@ -6,7 +6,7 @@ import ProductGrid, {
 import Pagination, { toPageNumber } from "@/components/product/Pagination";
 import { getProducts } from "@/components/sections/products/products";
 
-const PER_PAGE = 12;
+const PER_PAGE = 9;
 
 export const metadata = {
   title: "All products — SDS Handicrafts",
