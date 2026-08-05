@@ -50,7 +50,7 @@ export default async function ProductPage({ params }) {
   const images = [product.image, ...product.otherImages];
 
   return (
-    <article className="py-12 sm:py-16">
+    <article className="pattern-dots py-12 sm:py-16">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Breadcrumb product={product} />
 

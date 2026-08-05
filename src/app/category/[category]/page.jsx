@@ -35,7 +35,7 @@ export default async function CategoryPage({ params, searchParams }) {
   if (!isCategory(category)) notFound();
 
   return (
-    <section className="bg-sage/12 py-20 sm:py-24">
+    <section className="pattern-stitch bg-sage/12 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="text-center">
           <h1 className="font-display text-3xl font-semibold tracking-tight text-navy sm:text-4xl">

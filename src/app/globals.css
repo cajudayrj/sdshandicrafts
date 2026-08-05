@@ -39,3 +39,68 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* --- Decorative backdrops -------------------------------------------------
+   Paired with a `bg-*` utility, not a replacement for one: these only set
+   background-image, so the section keeps whichever background-color it had. */
+
+/* Cross-stitch marks, for sections that would otherwise be a flat wash. */
+.pattern-stitch {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%231b2a4e' stroke-opacity='.13' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M10 10l6 6M16 10l-6 6'/%3E%3Cpath d='M38 38l6 6M44 38l-6 6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 56px 56px;
+}
+
+/* Polka dots, a size down from the stitches so the two don't compete. */
+.pattern-dots {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--navy) 11%, transparent) 1.6px,
+    transparent 1.7px
+  );
+  background-size: 24px 24px;
+}
+
+/* A running stitch. A dashed border would do this too, but only the slivers
+   between cards are ever visible, and those dashes are too fine to read as
+   deliberate at that width. */
+.stitch-line {
+  height: 3px;
+  background-image: repeating-linear-gradient(
+    to right,
+    color-mix(in srgb, var(--navy) 45%, transparent) 0 9px,
+    transparent 9px 18px
+  );
+}
+
+/* --- Doodle motion --------------------------------------------------------
+   Applied to absolutely positioned stickers. Keyframes animate `transform`
+   rather than the `translate`/`rotate` properties Tailwind v4 utilities write
+   to, so a `rotate-12` on the same element still holds. */
+@keyframes doodle-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes doodle-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .doodle-float {
+    animation: doodle-float 7s ease-in-out infinite;
+  }
+
+  .doodle-float-slow {
+    animation: doodle-float 11s ease-in-out infinite;
+  }
+
+  .doodle-spin {
+    animation: doodle-spin 28s linear infinite;
+  }
+}

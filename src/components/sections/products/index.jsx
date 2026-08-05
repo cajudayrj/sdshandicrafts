@@ -1,5 +1,13 @@
 import Image from "next/image";
 import { SHOP } from "@/lib/socials";
+import {
+  ScallopEdge,
+  Scissors,
+  Sparkle,
+  Spool,
+  Squiggle,
+  YarnBall,
+} from "@/components/decor";
 import ProductCarousel from "./ProductCarousel";
 import { getProducts } from "./products";
 import productsBg from "./sdsproductbg.png";
@@ -31,11 +39,35 @@ export default async function Products() {
         className="absolute inset-0 -z-10 bg-cream/70"
       />
 
+      {/* Stickers pinned to the section's own margins — clear of the max-w-6xl
+          container, so they only appear once there's room beside it. */}
+      <YarnBall
+        fill="var(--blush)"
+        className="doodle-float pointer-events-none absolute left-[3%] top-24 hidden h-16 w-16 -rotate-10 text-navy/60 xl:block"
+      />
+      <Spool
+        fill="var(--sunny)"
+        className="doodle-float-slow pointer-events-none absolute right-[3%] top-40 hidden h-14 w-14 rotate-14 text-navy/60 xl:block"
+      />
+      <Scissors
+        fill="var(--cream)"
+        className="doodle-float pointer-events-none absolute bottom-32 left-[5%] hidden h-14 w-14 rotate-8 text-navy/50 xl:block"
+      />
+
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div className="text-center">
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
+          <h2 className="inline-flex items-center gap-3 font-display text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
+            <Sparkle
+              fill="var(--sunny)"
+              className="h-5 w-5 shrink-0 text-navy sm:h-6 sm:w-6"
+            />
             Our products
+            <Sparkle
+              fill="var(--sunny)"
+              className="h-5 w-5 shrink-0 text-navy sm:h-6 sm:w-6"
+            />
           </h2>
+          <Squiggle className="mx-auto mt-3 h-auto w-36 text-sage" />
           <p className="mx-auto mt-4 max-w-xl text-navy/70">
             Swipe through the shelf and tap any piece for a closer look.
           </p>
@@ -61,6 +93,10 @@ export default async function Products() {
           </a>
         </div>
       </div>
+
+      {/* Hands off to the hero's cream. Each homepage section owns the scallop
+          into the one below it, so the color here follows page.js's order. */}
+      <ScallopEdge fill="var(--cream)" />
     </section>
   );
 }
